@@ -34,14 +34,22 @@ $(function() {
        });
 
   function draw(data) {
-    var color = d3.scale.category10();
+    var buckets = d3.scale.linear().domain(d3.extent(data)).nice();
+    var ticks = buckets.ticks(5);
+
+    var color = d3.scale.threshold()
+        .domain(ticks)
+        .range(["#555", "#EEE", "#B33", "#DD4", "#333"]);
+
+    //remember to clamp it so it can handle values outside
+      //the expected range
 
     var width = 600,
         height = 800;
 
     var x = d3.scale.linear()
-        .range([0, width])
-        .domain([0, d3.max(data)]);
+        .domain([0, d3.max(data)])
+        .range([0, width]);
 
     var chart = d3.select("#graph")
         .attr("width", width)   //sets the width of the overall chart
