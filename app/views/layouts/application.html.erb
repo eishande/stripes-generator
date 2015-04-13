@@ -3,12 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
-
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
 
@@ -17,4 +12,8 @@
     <%= yield %>
 
   </body>
+  <%= javascript_include_tag "vendor/modernizr" %>
+  <%= javascript_include_tag "//code.jquery.com/jquery-1.11.0.min.js" %>
+  <%= javascript_include_tag "http://d3js.org/d3.v3.min.js" %>
+  <%= javascript_include_tag "application" %>
 </html>

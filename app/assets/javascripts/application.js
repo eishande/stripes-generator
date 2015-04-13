@@ -20,25 +20,24 @@ $(function(){ $(document).foundation(); });
 $(function() {
   d3.select("body").append("p").text("New paragraph!");
 
+  $.ajax({
+       type: "GET",
+       contentType: "application/json; charset=utf-8",
+       url: 'graph/data',
+       dataType: 'json',
+       success: function (data) {
+           draw(data);
+       },
+       error: function (result) {
+           console.log("Error");
+       }
+       });
 
-// $.ajax({
-//        type: "GET",
-//        contentType: "application/json; charset=utf-8",
-//        url: '/graph/data',
-//        dataType: 'json',
-//        success: function (data) {
-//            draw(data);
-//        },
-//        error: function (result) {
-//            error();
-//        }
-//        });
-
-var data = d3.json('/public/weather.json', function(d) {
-    var color = d3.scale.category10().domain(0, 100);
+  function draw(data) {
+    var color = d3.scale.category10();
 
     var width = 600,
-        height = data.length * 20;
+        height = 800;
 
     var x = d3.scale.linear()
         .range([0, width])
@@ -72,5 +71,5 @@ var data = d3.json('/public/weather.json', function(d) {
         .text(function (d) {
                   return d;
               });
-});
+  }
 });
