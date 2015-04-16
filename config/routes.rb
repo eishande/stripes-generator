@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
-  root 'graph#index'
+  root 'patterns#index'
   devise_for :users
+
+  resources :datasets do
+    resources :patterns
+  end
 
   resources :patterns
 
-  get 'graph/index'
-  get 'graph/data', :defaults => { :format => 'json' }
-
+  get 'patterns/data', :defaults => { :format => 'json' }
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

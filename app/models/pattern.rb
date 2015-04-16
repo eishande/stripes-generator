@@ -4,8 +4,4 @@ class Pattern < ActiveRecord::Base
 
   validates :user, presence: true
   validates :dataset, presence: true
-
-  def map
-  end
-
 end

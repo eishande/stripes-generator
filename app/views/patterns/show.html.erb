@@ -1,6 +1,20 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="large-8 push-4 columns">
+    <h3>Page Title</h3>
+    <svg id="graph"></svg>
+  </div>
 
-<%= @pattern.name %>
+  <div class="large-4 pull-8 columns">
+    <ul>
+      <li>CONTENT</li>
+      <li>CONTENT</li>
+      <li>CONTENT</li>
+      <li>CONTENT</li>
+      <li>CONTENT</li>
+      <li>CONTENT</li>
+    </ul>
+    <p><img src="http://placehold.it/320x240&text=Ad"/></p>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_pattern_path(@pattern) %> |
-<%= link_to 'Back', patterns_path %>
+<%= javascript_include_tag "graph" %>

@@ -1,0 +1,8 @@
+<h3>Your datasets</h3>
+<ul>
+<% @datasets.each do |dataset| %>
+  <li><%= dataset.name %></li>
+<% end %>
+</ul>
+
+<%= link_to "Add a new dataset", new_dataset_path %>

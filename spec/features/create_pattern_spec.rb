@@ -1,14 +1,55 @@
-# As a user
-# I want to upload a file
-# So that I can create a pattern from it
+require 'rails_helper'
 
-# As a user
-# I want to create a pattern from a dataset I uploaded
-# So that I can see the resulting design
+feature 'create a new pattern' do
+  let(:user) { FactoryGirl.create(:user) }
 
-# As a user
-# I want to select the colors for my pattern
-# So I can customize my design
+  before :each do
+    sign_in_as user
+  end
+
+  # As a user
+  # I want to create a pattern from a dataset I inputted
+  # So that I can see the resulting design
+  # As a user
+  # I want to select the colors for my pattern
+  # So I can customize my design
+  scenario 'create a new pattern with an existing dataset' do
+    dataset = FactoryGirl.create(:dataset, user: user)
+
+    visit root_path
+    save_and_open_page
+    select dataset.name, from: 'Dataset'
+
+    fill_in 'Colors', with: "{#5C323E,
+                               #A82743,
+                               #E15E32,
+                               #C0D23E,
+                               #E5F04C}"
+
+    click_button 'Create Pattern'
+
+    expect(page).to have_content('Pattern successfully created')
+  end
+
+  pending 'creating a pattern renders the stripe visual'
+  # expect(page).to have_selector('rect')
+
+  scenario 'fail to create a new pattern due to invalid input' do
+    dataset = FactoryGirl.create(:dataset, user: user)
+
+    visit root_path
+
+    select dataset.name, from: 'Dataset'
+
+    fill_in 'Colors', with: ""
+
+    click_button 'Create Pattern'
+
+    expect(page).to_not have_content('Pattern successfully created')
+  #  expect(page).to_not have_selector('rect')
+    expect(page).to have_content("Colors can't be blank")
+  end
+end
 
 # As a user
 # I want to view a particular pattern that I created
