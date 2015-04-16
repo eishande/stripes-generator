@@ -7,34 +7,12 @@ class PatternsController < ApplicationController
     @dataset = Dataset.new
   end
 
-  def data
-    @data =
-    #  Dataset.find(params[:dataset_id]).data
-    [
-      30, 37, 33, 43, 39, 24, 38, 42, 28, 48,
-      57, 13, 40, 39, 21, 45, 51, 30, 24, 32,
-      41, 19, 33, 35, 49, 56, 14, 40, 42, 45 ]
-    respond_to do |format|
-      format.json {
-        render :json => @data
-      }
-    end
-  end
-
   def show
-    @data =
-    #  Dataset.find(params[:dataset_id]).data
-    [
-      30, 37, 33, 43, 39, 24, 38, 42, 28, 48,
-      57, 13, 40, 39, 21, 45, 51, 30, 24, 32,
-      41, 19, 33, 35, 49, 56, 14, 40, 42, 45 ]
+    @data = Pattern.find(params[:id]).dataset.data
+
     respond_to do |format|
-      format.html {
-        render :show
-      }
-      format.json {
-        render :json => @data
-      }
+      format.html { render :show }
+      format.json { render json: @data }
     end
   end
 
@@ -44,8 +22,8 @@ class PatternsController < ApplicationController
     if @pattern.save
       redirect_to @pattern, notice: 'Pattern was successfully created.'
     else
-      render :index
       flash[:alert] = 'Something went wrong'
+      render :index
     end
   end
 
@@ -56,8 +34,8 @@ class PatternsController < ApplicationController
     if @pattern.update(pattern_params)
       redirect_to @pattern, notice: 'Pattern was successfully updated.'
     else
+      flash[:alert] = 'Something went wrong'   #Flash should be above render
       render :edit
-      flash[:alert] = 'Something went wrong'
     end
   end
 
@@ -69,7 +47,7 @@ class PatternsController < ApplicationController
   private
 
   def set_pattern
-    @pattern = Pattern.find(params[:id])
+    @pattern ||= Pattern.find(params[:id])  #optimization using 'hammer operator'
   end
 
   def pattern_params

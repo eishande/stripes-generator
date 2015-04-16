@@ -1,3 +1,5 @@
+<%= link_to "Add a new dataset", new_dataset_path %>
+
 <%= form_for @pattern do |f| %>
   <% if @pattern.errors.any? %>
     <div id="error_explanation">
@@ -9,12 +11,11 @@
     </div>
   <% end %>
 
-    <%= f.label :dataset %>
-    <%= f.collection_select(:dataset_id, Dataset.all, :id, :name) %>
+  <%= f.label :dataset_id %>
+  <%= f.collection_select(:dataset_id, Dataset.all, :id, :name) %>
 
   <%= f.label :colors %>
   <%= f.text_area :colors %>
 
   <%= f.submit %>
 <% end %>
-  <%= link_to "Add a new dataset", new_dataset_path %>

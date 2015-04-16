@@ -28,11 +28,14 @@ feature 'create a new pattern' do
 
     click_button 'Create Pattern'
 
-    expect(page).to have_content('Pattern successfully created')
+    expect(page).to have_content('Pattern was successfully created')
   end
 
-  pending 'creating a pattern renders the stripe visual'
-  # expect(page).to have_selector('rect')
+  scenario 'creating a pattern renders the stripe visual' do
+     dataset = FactoryGirl.create(:dataset, user:user)
+     pattern = FactoryGirl.create(:pattern, user:user, dataset:dataset)
+     expect(page).to have_selector('rect')
+  end
 
   scenario 'fail to create a new pattern due to invalid input' do
     dataset = FactoryGirl.create(:dataset, user: user)

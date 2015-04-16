@@ -41,7 +41,7 @@ feature 'create a new dataset' do
     fill_in 'Email', with: 'nibbler@planetexpress.com'
     fill_in 'Password', with: 'futurama'
 
-    click_link 'Log In'
+    click_button 'Log In'
 
     expect(page).to have_content 'Sign Out'
   end

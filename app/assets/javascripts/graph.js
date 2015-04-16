@@ -3,20 +3,18 @@
 //= require foundation
 
 $(function() {
-  d3.select("body").append("p").text("New paragraph!");
-
   $.ajax({
-       type: "GET",
-       contentType: "application/json; charset=utf-8",
-       url: window.location.pathname,
-       dataType: 'json',
-       success: function(data) {
-           draw(data);
-       },
-       error: function(result) {
-           console.log("Error");
-       }
-       });
+    type: "GET",
+    contentType: "application/json; charset=utf-8",
+    url: window.location.pathname,
+    dataType: 'json',
+    success: function(data) {
+      draw(data);
+    },
+    error: function(result) {
+      console.log("Error");
+    }
+  });
 
   function draw(data) {
     var buckets = d3.scale.linear().domain(d3.extent(data)).nice();
