@@ -20,29 +20,36 @@ $(function(){ $(document).foundation(); });
 $(function() {
   d3.select("body").append("p").text("New paragraph!");
 
+  $.ajax({
+       type: "GET",
+       contentType: "application/json; charset=utf-8",
+       url: 'graph/data',
+       dataType: 'json',
+       success: function (data) {
+           draw(data);
+       },
+       error: function (result) {
+           console.log("Error");
+       }
+       });
 
-// $.ajax({
-//        type: "GET",
-//        contentType: "application/json; charset=utf-8",
-//        url: '/graph/data',
-//        dataType: 'json',
-//        success: function (data) {
-//            draw(data);
-//        },
-//        error: function (result) {
-//            error();
-//        }
-//        });
+  function draw(data) {
+    var buckets = d3.scale.linear().domain(d3.extent(data)).nice();
+    var ticks = buckets.ticks(5);
 
-var data = d3.json('/public/weather.json', function(d) {
-    var color = d3.scale.category10().domain(0, 100);
+    var color = d3.scale.threshold()
+        .domain(ticks)
+        .range(["#555", "#EEE", "#B33", "#DD4", "#333"]);
+
+    //remember to clamp it so it can handle values outside
+      //the expected range
 
     var width = 600,
-        height = data.length * 20;
+        height = 800;
 
     var x = d3.scale.linear()
-        .range([0, width])
-        .domain([0, d3.max(data)]);
+        .domain([0, d3.max(data)])
+        .range([0, width]);
 
     var chart = d3.select("#graph")
         .attr("width", width)   //sets the width of the overall chart
@@ -72,5 +79,5 @@ var data = d3.json('/public/weather.json', function(d) {
         .text(function (d) {
                   return d;
               });
-});
+  }
 });
