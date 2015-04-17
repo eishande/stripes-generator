@@ -7,6 +7,12 @@ FactoryGirl.define do
     password_confirmation 'password'
   end
 
+  factory :nibbler, parent: :user do
+    email 'nibbler@planetexpress.com'
+    password 'futurama'
+    password_confirmation 'futurama'
+  end
+
   factory :dataset do
     data '{45, 32, 57, 40, 23}'
     user

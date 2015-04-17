@@ -1,5 +1,4 @@
-.wrapper
-{
+.wrapper {
   max-width: 90%;
 }
 
@@ -13,7 +12,7 @@
    font-family: 'Karla', sans-serif;
  }
 
- .minicolors input[type=hidden] + .minicolors-swatch {
+.minicolors input[type=hidden] + .minicolors-swatch {
   width: 4em;
   height: 12em;
 }

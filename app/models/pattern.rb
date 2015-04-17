@@ -9,6 +9,13 @@ class Pattern < ActiveRecord::Base
   validate :colors_length
   validate :colors_hex_format
 
+  def build_json
+    data = self.dataset.data
+    colors = self.colors
+
+    { :data => data, :colors => colors }.to_json
+  end
+
   def colors_length
     if colors.length != 5
       errors.add(:colors, ":you must enter 5 colors")
