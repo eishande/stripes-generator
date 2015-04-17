@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.0.0'
+
 gem 'rails', '4.2.1'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
@@ -27,9 +29,10 @@ group :development, :test do
   gem 'dotenv-rails'
 end
 
-gem 'coveralls', group: [:test], require: false
-gem 'database_cleaner', group: [:test]
-gem 'poltergeist', group: [:test]
+gem 'coveralls', group: :test, require: false
+gem 'database_cleaner', group: :test
+gem 'poltergeist', group: :test
+gem 'rails_12factor', group: :production
 
 gem 'devise'
 gem 'foundation-rails', github: "zurb/foundation-rails"
