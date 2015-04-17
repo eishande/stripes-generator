@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,QACA;EACE,SAAS,EAAE,GAAG;;AAGhB,MAAO;EACL,gBAAgB,EAAE,OAAO;EACzB,KAAK,EAAE,KAAK;;AAGd,OAAQ;EACL,gBAAgB,EAAE,OAAO;EACzB,WAAW,EAAE,mBAAmB;;AAGlC,mDAAoD;EACnD,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,IAAI",
-"sources": ["patterns.scss"],
-"names": [],
-"file": "patterns.css"
-}

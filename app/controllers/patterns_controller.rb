@@ -8,8 +8,7 @@ class PatternsController < ApplicationController
   end
 
   def show
-    @data = Pattern.find(params[:id]).dataset.data
-
+    @data = Pattern.find(params[:id]).build_json
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @data }
@@ -41,7 +40,7 @@ class PatternsController < ApplicationController
 
   def destroy
     @pattern.destroy
-    redirect_to patterns_url, notice: 'Pattern was successfully destroyed.'
+    redirect_to patterns_url, notice: 'Pattern deleted.'
   end
 
   private

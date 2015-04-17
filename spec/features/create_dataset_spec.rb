@@ -2,6 +2,7 @@ require 'rails_helper'
 
 feature 'create a new dataset' do
   let(:user) { FactoryGirl.create(:user) }
+  let(:nibbler) { FactoryGirl.create(:nibbler) }
 
   before :each do
     sign_in_as user
@@ -34,6 +35,7 @@ feature 'create a new dataset' do
 
   scenario 'create a new dataset when you don\'t start out logged in' do
     visit root_path
+    nibbler
     sign_out_as(user)
     click_link 'Add a new dataset'
     expect(page).to have_content('Sign In')
@@ -41,7 +43,7 @@ feature 'create a new dataset' do
     fill_in 'Email', with: 'nibbler@planetexpress.com'
     fill_in 'Password', with: 'futurama'
 
-    click_button 'Log In'
+    click_button 'Log in'
 
     expect(page).to have_content 'Sign Out'
   end

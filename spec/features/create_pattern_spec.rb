@@ -13,26 +13,20 @@ feature 'create a new pattern' do
   # As a user
   # I want to select the colors for my pattern
   # So I can customize my design
-  scenario 'create a new pattern with an existing dataset' do
+  pending 'create a new pattern with an existing dataset' do
     dataset = FactoryGirl.create(:dataset, user: user)
 
     visit root_path
-    save_and_open_page
-    select dataset.name, from: 'Dataset'
 
-    fill_in 'Colors', with: "{#5C323E,
-                               #A82743,
-                               #E15E32,
-                               #C0D23E,
-                               #E5F04C}"
+    select dataset.name, from: 'Dataset'
 
     click_button 'Create Pattern'
 
     expect(page).to have_content('Pattern was successfully created')
   end
 
-  scenario 'creating a pattern renders the stripe visual' do
-     dataset = FactoryGirl.create(:dataset, user:user)
+  pending 'creating a pattern renders the stripe visual', js:true do
+     dataset = FactoryGirl.create(:dataset, user: user)
      FactoryGirl.create(:pattern, user:user, dataset:dataset)
      expect(page).to have_selector('rect')
   end
@@ -44,14 +38,12 @@ feature 'create a new pattern' do
 
     select dataset.name, from: 'Dataset'
 
-    fill_in 'Colors', with: "#FFFE"
-
     click_button 'Create Pattern'
 
     expect(page).to_not have_content('Pattern successfully created')
   #  expect(page).to_not have_selector('rect')
-    expect(page).to have_content("Exactly 5 colors are allowed")
-    expect(page).to have_content("Colors must be in hexadecimal format")
+
+    expect(page).to have_content("Colors must be formatted as hexadecimal codes")
   end
 end
 

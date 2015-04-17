@@ -1,6 +1,7 @@
 <div class="row">
   <div class="large-8 push-4 columns">
     <h3>Page Title</h3>
+    <%= button_to 'Delete', pattern_path(@pattern), :confirm => 'Are you sure?', :method => :delete %>
     <svg id="graph"></svg>
   </div>
 

@@ -9,19 +9,20 @@ $(function() {
     url: window.location.pathname,
     dataType: 'json',
     success: function(data) {
-      draw(data);
+      //  { data => [45,32,45,21], colors => ["#452, #EE4, #A3D"]}
+      draw(data.data, data.colors);
     },
     error: function(result) {
       console.log("Error");
     }
   });
 
-  function draw(data) {
+  function draw(data, colors) {
     var buckets = d3.scale.linear().domain(d3.extent(data)).nice();
     var ticks = buckets.ticks(5);
     var color = d3.scale.threshold()
         .domain(ticks)
-        .range(["#5E9", "#DCD", "#FAB", "#F87", "#B05"]);
+        .range(colors);
 
     //remember to clamp it so it can handle values outside
       //the expected range
