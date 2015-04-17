@@ -12,72 +12,23 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.minicolors
 //= require foundation
-//= require_tree .
+
 
 $(function(){ $(document).foundation(); });
 
 $(function() {
-  d3.select("body").append("p").text("New paragraph!");
+  $('.flash-messages').delay(1500).fadeOut(600);
 
-  $.ajax({
-       type: "GET",
-       contentType: "application/json; charset=utf-8",
-       url: 'graph/data',
-       dataType: 'json',
-       success: function (data) {
-           draw(data);
-       },
-       error: function (result) {
-           console.log("Error");
-       }
-       });
-
-  function draw(data) {
-    var buckets = d3.scale.linear().domain(d3.extent(data)).nice();
-    var ticks = buckets.ticks(5);
-
-    var color = d3.scale.threshold()
-        .domain(ticks)
-        .range(["#555", "#EEE", "#B33", "#DD4", "#333"]);
-
-    //remember to clamp it so it can handle values outside
-      //the expected range
-
-    var width = 600,
-        height = 800;
-
-    var x = d3.scale.linear()
-        .domain([0, d3.max(data)])
-        .range([0, width]);
-
-    var chart = d3.select("#graph")
-        .attr("width", width)   //sets the width of the overall chart
-        .attr("height", height); //sets the height of the overall chart
-
-    var bar = chart.selectAll("g")  //what makes them not stack on top of each other
-        .data(data)
-        .enter().append("g")
-        .attr("transform", function (d, i) {
-                  return "translate(0," + i * 20 + ")";
-              });
-
-    bar.append("rect")
-        .attr("width", width)   //sets width of each rect
-        .attr("height", 20)   //sets height of each rect
-        .style("fill", function (d) {
-                   return color(d);   //fills with appr. color
-               });
-
-    bar.append("text")
-        .attr("x", function (d) {
-                  return x(d) - 10;
-              })
-        .attr("y", 10)
-        .attr("dy", ".35em")
-        .style("fill", "white")
-        .text(function (d) {
-                  return d;
-              });
-  }
+  $('#color1').minicolors();
+  $('#color1').minicolors('value','#fef0d9');
+  $('#color2').minicolors();
+  $('#color2').minicolors('value','#fdcc8a');
+  $('#color3').minicolors();
+  $('#color3').minicolors('value','#fc8d59');
+  $('#color4').minicolors();
+  $('#color4').minicolors('value','#e34a33');
+  $('#color5').minicolors();
+  $('#color5').minicolors('value','#b30000');
 });

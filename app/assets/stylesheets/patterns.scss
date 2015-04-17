@@ -1,1 +1,19 @@
+.wrapper
+{
+  max-width: 90%;
+}
 
+.flash {
+  background-color: #5CCEEE;
+  color: white;
+}
+
+.button {
+   background-color: #5CCEEE;
+   font-family: 'Karla', sans-serif;
+ }
+
+ .minicolors input[type=hidden] + .minicolors-swatch {
+  width: 4em;
+  height: 12em;
+}

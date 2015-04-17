@@ -8,10 +8,52 @@
   </head>
 
   <body>
+  <div class="wrapper">
+    <div class="row">
+      <div class="large-3 columns">
+        <%= link_to "SCARF", root_path %>
+      </div>
 
-    <%= yield %>
+      <div class="large-9 columns">
+        <ul class="inline-list right">
+          <% if current_user %>
+            <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+            <li><%= link_to 'Sign In', new_user_session_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
 
+  <%- flash.each do |key, value| -%>
+    <div class="flash flash-<%= key %> flash-messages">
+      <%= value %>
+    </div>
+  <% end %>
+
+  <%= yield %>
+
+  <footer class="row">
+    <div class="large-12 columns">
+      <hr/>
+      <div class="row">
+        <div class="large-6 columns">
+          <p>PLACEHOLDER</p>
+        </div>
+        <div class="large-6 columns">
+          <ul class="inline-list right">
+            <li><i class="fa fa-github"></i><%= link_to "eishande", "http://www.github.com/eishande/" %></li>
+            <li><i class="fa fa-twitter"></i><%= link_to "YarnAndCode", "http://www.twitter.com/YarnAndCode" %></li>
+            <li><a href="#">Section 3</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </div>
   </body>
+
   <%= javascript_include_tag "vendor/modernizr" %>
   <%= javascript_include_tag "//code.jquery.com/jquery-1.11.0.min.js" %>
   <%= javascript_include_tag "http://d3js.org/d3.v3.min.js" %>

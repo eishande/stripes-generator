@@ -3,7 +3,7 @@ class CreateDatasets < ActiveRecord::Migration
     create_table :datasets do |t|
       t.integer :user_id, null:false
       t.string :name
-      t.integer :data, array: true, default: []
+      t.text :data, array: true, default: []
     end
   end
 end

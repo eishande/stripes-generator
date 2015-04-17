@@ -1,8 +1,8 @@
-<%= form_for(@pattern) do |f| %>
+<%= link_to "Add a new dataset", new_dataset_path %>
+
+<%= form_for @pattern do |f| %>
   <% if @pattern.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@pattern.errors.count, "error") %> prohibited this pattern from being saved:</h2>
-
       <ul>
       <% @pattern.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,7 +11,16 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.label :dataset_id %>
+  <%= f.collection_select(:dataset_id, Dataset.all, :id, :name) %>
+
+  <%= f.label :colors %>
+
+  <%= f.hidden_field :colors, name:"pattern[colors][]", id:'color1' %>
+  <%= f.hidden_field :colors, name:"pattern[colors][]", id:'color2' %>
+  <%= f.hidden_field :colors, name:"pattern[colors][]", id:'color3' %>
+  <%= f.hidden_field :colors, name:"pattern[colors][]", id:'color4' %>
+  <%= f.hidden_field :colors, name:"pattern[colors][]", id:'color5' %>
+
+  <%= f.submit %>
 <% end %>

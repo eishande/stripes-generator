@@ -19,10 +19,19 @@ group :development, :test do
   gem 'spring'
   gem 'pry-rails'
   gem 'rspec-rails'
-  gem 'capybara', group: [:development, :test]
-  gem 'launchy', group: [:development, :test]
-  gem 'factory_girl', group: [:development, :test]
+  gem 'capybara'
+  gem 'launchy'
+  gem 'factory_girl'
+  gem 'shoulda-matchers', require: false
+  gem 'valid_attribute'
+  gem 'dotenv-rails'
 end
+
+gem 'coveralls', group: [:test], require: false
+gem 'database_cleaner', group: [:test]
+gem 'poltergeist', group: [:test]
 
 gem 'devise'
 gem 'foundation-rails', github: "zurb/foundation-rails"
+gem 'font-awesome-sass'
+gem 'jquery-minicolors-rails'

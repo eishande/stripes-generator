@@ -3,5 +3,5 @@ class Dataset < ActiveRecord::Base
   belongs_to :user
 
   validates :user, presence: true
-  validates :data, presence: true, numericality: true
+  validates :data, presence: true 
 end
