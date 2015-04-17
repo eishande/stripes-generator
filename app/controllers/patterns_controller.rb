@@ -18,7 +18,7 @@ class PatternsController < ApplicationController
 
   def create
     @pattern = current_user.patterns.build(pattern_params)
-    #colors have to come back in {} or it won't save
+    @pattern.colors = params[:pattern][:colors]
     if @pattern.save
       redirect_to @pattern, notice: 'Pattern was successfully created.'
     else

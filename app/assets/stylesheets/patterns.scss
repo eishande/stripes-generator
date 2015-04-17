@@ -1,6 +1,3 @@
-@import "font-awesome-sprockets";
-@import "font-awesome";
-
 .wrapper
 {
   max-width: 90%;
@@ -15,3 +12,8 @@
    background-color: #5CCEEE;
    font-family: 'Karla', sans-serif;
  }
+
+ .minicolors input[type=hidden] + .minicolors-swatch {
+  width: 4em;
+  height: 12em;
+}

@@ -34,3 +34,4 @@ gem 'poltergeist', group: [:test]
 gem 'devise'
 gem 'foundation-rails', github: "zurb/foundation-rails"
 gem 'font-awesome-sass'
+gem 'jquery-minicolors-rails'

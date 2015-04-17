@@ -33,7 +33,7 @@ feature 'create a new pattern' do
 
   scenario 'creating a pattern renders the stripe visual' do
      dataset = FactoryGirl.create(:dataset, user:user)
-     pattern = FactoryGirl.create(:pattern, user:user, dataset:dataset)
+     FactoryGirl.create(:pattern, user:user, dataset:dataset)
      expect(page).to have_selector('rect')
   end
 
@@ -44,13 +44,14 @@ feature 'create a new pattern' do
 
     select dataset.name, from: 'Dataset'
 
-    fill_in 'Colors', with: ""
+    fill_in 'Colors', with: "#FFFE"
 
     click_button 'Create Pattern'
 
     expect(page).to_not have_content('Pattern successfully created')
   #  expect(page).to_not have_selector('rect')
-    expect(page).to have_content("Colors can't be blank")
+    expect(page).to have_content("Exactly 5 colors are allowed")
+    expect(page).to have_content("Colors must be in hexadecimal format")
   end
 end
 
