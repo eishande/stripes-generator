@@ -13,7 +13,7 @@ feature 'create a new pattern' do
   # As a user
   # I want to select the colors for my pattern
   # So I can customize my design
-  pending 'create a new pattern with an existing dataset' do
+  scenario 'create a new pattern with an existing dataset' do
     dataset = FactoryGirl.create(:dataset, user: user)
 
     visit root_path
@@ -31,7 +31,7 @@ feature 'create a new pattern' do
      expect(page).to have_selector('rect')
   end
 
-  scenario 'fail to create a new pattern due to invalid input' do
+  pending 'fail to create a new pattern due to invalid input' do
     dataset = FactoryGirl.create(:dataset, user: user)
 
     visit root_path

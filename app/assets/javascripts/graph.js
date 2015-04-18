@@ -33,7 +33,7 @@ $(function() {
     var x = d3.scale.linear()
         .domain([0, d3.max(data)])
         .range([0, width]);
-
+  
     var chart = d3.select("#graph")
         .attr("width", width)   //sets the width of the overall chart
         .attr("height", height); //sets the height of the overall chart

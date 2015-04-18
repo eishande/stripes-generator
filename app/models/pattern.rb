@@ -24,7 +24,7 @@ class Pattern < ActiveRecord::Base
 
   def colors_hex_format
     colors.each do |color|
-      if !color.match(/^#[a-f0-9]{6}$/i)
+      if !color =~ /^#[a-f0-9]{6}$/i
         errors.add(:colors, "must be formatted as hexadecimal codes")
         break
       end
