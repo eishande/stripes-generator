@@ -11,8 +11,9 @@
  * file per style scope.
  *
  *= require_tree .
- *= require jquery.minicolors
  *= require_self
+ *= require jquery.minicolors
+ *= require font-awesome
  *= require foundation_and_overrides
 
  */

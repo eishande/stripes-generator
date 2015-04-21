@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.minicolors
-//= require graph 
 //= require foundation
 
 

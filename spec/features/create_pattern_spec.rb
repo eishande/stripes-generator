@@ -25,25 +25,14 @@ feature 'create a new pattern' do
     expect(page).to have_content('Pattern was successfully created')
   end
 
-  pending 'creating a pattern renders the stripe visual', js:true do
+  scenario 'creating a pattern renders the stripe visual', js:true do
      dataset = FactoryGirl.create(:dataset, user: user)
-     FactoryGirl.create(:pattern, user:user, dataset:dataset)
+     visit root_path
+
+     select dataset.name, from: 'Dataset'
+
+     find('.pattern-submit').trigger('click')
      expect(page).to have_selector('rect')
-  end
-
-  pending 'fail to create a new pattern due to invalid input' do
-    dataset = FactoryGirl.create(:dataset, user: user)
-
-    visit root_path
-
-    select dataset.name, from: 'Dataset'
-
-    click_button 'Create Pattern'
-
-    expect(page).to_not have_content('Pattern successfully created')
-  #  expect(page).to_not have_selector('rect')
-
-    expect(page).to have_content("Colors must be formatted as hexadecimal codes")
   end
 end
 
@@ -58,7 +47,3 @@ end
 # As a user
 # I want to delete a particular dataset I created
 # So that I can keep my set of patterns neat and organized
-
-# As a user
-# I want to create a pattern from a dataset imported from an external source
-# So I can see a design from a particular dataset I don't have locally

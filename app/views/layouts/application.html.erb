@@ -43,9 +43,9 @@
         </div>
         <div class="large-6 columns">
           <ul class="inline-list right">
-            <li><i class="fa fa-github"></i><%= link_to "eishande", "http://www.github.com/eishande/" %></li>
-            <li><i class="fa fa-twitter"></i><%= link_to "YarnAndCode", "http://www.twitter.com/YarnAndCode" %></li>
-            <li><a href="#">Section 3</a></li>
+            <li><%= fa_icon "github" %><%= link_to "eishande", "http://www.github.com/eishande/" %></li>
+            <li><%= fa_icon "twitter" %><%= link_to "YarnAndCode", "http://www.twitter.com/YarnAndCode" %></li>
+            <li><%= fa_icon "linkedin" %><%= link_to "Profile", "http://www.linkedin.com/in/katebuckner" %></li>
           </ul>
         </div>
       </div>
@@ -53,6 +53,8 @@
   </footer>
   </div>
   </body>
+
+  <%= yield :javascript %>
 
   <%= javascript_include_tag "vendor/modernizr" %>
   <%= javascript_include_tag "//code.jquery.com/jquery-1.11.0.min.js" %>

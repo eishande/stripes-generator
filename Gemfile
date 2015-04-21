@@ -36,5 +36,5 @@ gem 'rails_12factor', group: :production
 
 gem 'devise'
 gem 'foundation-rails', github: "zurb/foundation-rails"
-gem 'font-awesome-sass'
+gem 'font-awesome-rails'
 gem 'jquery-minicolors-rails'

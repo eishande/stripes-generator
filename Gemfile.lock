@@ -91,8 +91,8 @@ GEM
     execjs (2.5.0)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
-    font-awesome-sass (4.3.2.1)
-      sass (~> 3.2)
+    font-awesome-rails (4.3.0.0)
+      railties (>= 3.2, < 5.0)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
     hike (1.2.3)
@@ -262,7 +262,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   factory_girl
-  font-awesome-sass
+  font-awesome-rails
   foundation-rails!
   jbuilder (~> 2.0)
   jquery-minicolors-rails
