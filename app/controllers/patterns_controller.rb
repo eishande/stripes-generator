@@ -1,8 +1,12 @@
 class PatternsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:new]
   before_action :set_pattern, only: [:show, :edit, :update, :destroy]
 
   def index
+    @patterns = Pattern.where(:user.id == current_user.id)
+  end
+
+  def new
     @pattern = Pattern.new
     @dataset = Dataset.new
   end
@@ -40,7 +44,7 @@ class PatternsController < ApplicationController
 
   def destroy
     @pattern.destroy
-    redirect_to patterns_url, notice: 'Pattern deleted.'
+    redirect_to patterns_path, notice: 'Pattern deleted.'
   end
 
   private
