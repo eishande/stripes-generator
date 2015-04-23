@@ -1,15 +1,26 @@
-<h3>Your datasets</h3>
-<ul>
-<% @datasets.each do |dataset| %>
-<div class = "data-set">
-  <li><%= dataset.name %></li>
-  <li><% 10.times do |i| %>
-      <%= "#{dataset.data[i]}, " %>
-      <% end %></li>
-  <%= button_to "Edit", edit_dataset_path(dataset), class: "button" %>
-  <%= button_to "Delete", dataset_path(dataset), :confirm => "Are you sure?", :method => :delete, class: "button" %>
-  </div>
-<% end %>
-</ul>
 
-<%= link_to "Add a new dataset", new_dataset_path %>
+
+    <% @datasets.each do |dataset| %>
+    <div class= "row">
+      <div class = "data-set small-6 columns">
+        <p><%= dataset.name %></p>
+        <p>
+          <%= dataset.data[0] %>
+          <% 9.times do |i| %>
+            <%= ", #{dataset.data[i+1]}" %>
+          <% end %>...
+        </p>
+      </div>
+
+      <div class="dataset-buttons small-6 columns">
+        <%= button_to "Edit", edit_dataset_path(dataset), :method => :get, class: "button" %>
+        <%= button_to "Delete", dataset_path(dataset), confirm: "Are you sure?", :method => :delete, class: "button" %>
+      </div>
+    </div>
+    <% end %>
+
+
+  <div class="large-4 pull-8 columns">
+    <h3>Your datasets</h3>
+    <%= link_to "Add a new dataset", new_dataset_path %>
+</div>

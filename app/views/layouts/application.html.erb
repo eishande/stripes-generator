@@ -16,9 +16,15 @@
     <div class="top-nav-bar">
       <div class="row">
         <div class="large-6 columns">
-          <%= link_to "HOME", root_path %>
-          <%= link_to "My Datasets", datasets_path %>
-          <%= link_to "My Patterns", patterns_path %>
+          <div class = "top-bar-element">
+            <%= link_to "HOME", root_path %>
+          </div>
+          <div class = "top-bar-element">
+            <%= fa_icon "bar-chart" %> <%= link_to "My Datasets", datasets_path %>
+          </div>
+          <div class = "top-bar-element">
+            <%= fa_icon "list-ol" %> <%= link_to "My Patterns", patterns_path %>
+          </div>
         </div>
 
         <div class="large-6 columns">
@@ -32,12 +38,15 @@
           </ul>
         </div>
       </div>
+      <div class="row">
+        <%- flash.each do |key, value| -%>
+          <div class="flash flash-<%= key %> flash-messages">
+            <%= value %>
+          </div>
+        <% end %>
+      </div>
     </div>
-  <%- flash.each do |key, value| -%>
-    <div class="flash flash-<%= key %> flash-messages">
-      <%= value %>
-    </div>
-  <% end %>
+
 
   <%= yield %>
 
