@@ -3,7 +3,7 @@ class PatternsController < ApplicationController
   before_action :set_pattern, only: [:show, :edit, :update, :destroy]
 
   def index
-    @patterns = Pattern.where(:user.id == current_user.id)
+    @patterns = Pattern.where(:user_id == current_user.id)
   end
 
   def new

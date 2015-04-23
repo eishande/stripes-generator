@@ -1,5 +1,5 @@
 class Dataset < ActiveRecord::Base
-  has_many :patterns
+  has_many :patterns, dependent: :destroy
   belongs_to :user
 
   validates :user, presence: true

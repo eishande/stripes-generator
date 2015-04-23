@@ -2,6 +2,7 @@
 
 $title-font: 'Courgette', sans-serif;
 $body-font: 'Playfair Display', serif;
+$sans-serif-font: 'Open Sans', sans-serif;
 $main-font-color: #492D61;
 $link-color: #61C155;
 $button-color: #048091;
@@ -68,4 +69,10 @@ textarea {
   &:focus {
     border: 2px solid green;
   }
+}
+
+#graph
+{
+  font-size: 1.1em;
+  font-family: $sans-serif-font;
 }

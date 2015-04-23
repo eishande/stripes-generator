@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'create a new pattern' do
+feature 'delete a pattern' do
   let(:user) { FactoryGirl.create(:user) }
 
   before :each do
@@ -10,6 +10,7 @@ feature 'create a new pattern' do
   scenario 'delete a pattern that you created' do
     pattern = FactoryGirl.create(:pattern, user: user)
     visit pattern_path(pattern)
+
     click_button 'Delete'
 
     expect(page).to have_content 'Pattern deleted'
