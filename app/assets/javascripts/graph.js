@@ -24,16 +24,17 @@ $(function() {
         .domain(ticks)
         .range(colors);
 
+    var barHeight = 30;
     //remember to clamp it so it can handle values outside
       //the expected range
 
     var width = 600,
-        height = 800;
+        height = d3.set(data).size() * barHeight;
 
     var x = d3.scale.linear()
         .domain([0, d3.max(data)])
-        .range([0, width]);
-  
+        .range([0, width-20]);
+
     var chart = d3.select("#graph")
         .attr("width", width)   //sets the width of the overall chart
         .attr("height", height); //sets the height of the overall chart
@@ -42,25 +43,36 @@ $(function() {
         .data(data)
         .enter().append("g")
         .attr("transform", function (d, i) {
-                  return "translate(0," + i * 20 + ")";
+                  return "translate(0," + i * barHeight + ")";
               });
 
     bar.append("rect")
-        .attr("width", width)   //sets width of each rect
-        .attr("height", 20)   //sets height of each rect
+        .attr("width", width-20)   //sets width of each rect
+        .attr("height", barHeight)   //sets height of each rect
         .style("fill", function (d) {
                    return color(d);   //fills with appr. color
                });
 
     bar.append("text")
         .attr("x", function (d) {
-                  return x(d) - 10;
+                  return x(d) - 20;
               })
-        .attr("y", 10)
-        .attr("dy", ".35em")
+        .attr("y", barHeight/3)
+        .attr("dy", ".5em")
         .style("fill", "white")
         .text(function (d) {
                   return d;
               });
-  }
+
+    bar.append("text")
+        .attr("x", 590)
+        .attr("y", barHeight/2)
+        .attr("dy", ".5em")
+        .style("fill", "black")
+        .text(function(d, i) {
+                  return i+1;
+                });
+
+          }
+
 });
