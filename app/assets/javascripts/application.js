@@ -15,7 +15,7 @@
 //= require jquery.minicolors
 //= require foundation
 //= require slick
-
+//= require slider
 
 $(function(){ $(document).foundation(); });
 
@@ -27,15 +27,4 @@ $(function() {
   $('#color3').minicolors().minicolors('value','#fc8d59');
   $('#color4').minicolors().minicolors('value','#e34a33');
   $('#color5').minicolors().minicolors('value','#b30000');
-});
-
-$('.fade').slick({
-  dots: true,
-  infinite: true,
-  speed: 500,
-  fade: true,
-  slidesToScroll: 1,
-  autoplay: true,
-  autoplaySpeed: 4000,
-  cssEase: 'linear'
 });

@@ -28,13 +28,10 @@ feature 'create a new pattern' do
   # pending 'when user signs up they can access the default datasets'
   #   user = FactoryGirl.create(:user)
 
-
-
-
-  scenario 'creating a pattern renders the stripe visual', js:true, focus:true do
+  scenario 'creating a pattern renders the stripe visual', js:true do
      dataset = FactoryGirl.create(:dataset, user: user)
      visit root_path
-  
+
      select dataset.name, from: 'Dataset'
 
      find('.pattern-submit').trigger('click')

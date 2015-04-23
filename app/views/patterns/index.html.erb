@@ -7,6 +7,7 @@
       <%= "#{pattern.dataset.data[i]}, " %>
       <% end %></li>
   <li><%= pattern.colors %></li>
+  <%= button_to "Delete", pattern_path(@pattern), :confirm => "Are you sure?", :method => :delete, class: "button" %>
 </div>
 <% end %>
 </ul>

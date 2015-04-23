@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <%= stylesheet_link_tag "application" %>
+    <%= stylesheet_link_tag "//cdn.jsdelivr.net/jquery.slick/1.5.0/slick.css" %>
+    <%= stylesheet_link_tag "//cdn.jsdelivr.net/jquery.slick/1.5.0/slick-theme.css" %>
     <%= stylesheet_link_tag "//fonts.googleapis.com/css?family=Open+Sans|Playfair+Display|Courgette" %>
+    <%= stylesheet_link_tag "application" %>
     <%= csrf_meta_tags %>
     <title>Stripes!</title>
   </head>
@@ -60,9 +62,6 @@
   </body>
 
   <%= yield :javascript %>
-
   <%= javascript_include_tag "vendor/modernizr" %>
-  <%= javascript_include_tag "//code.jquery.com/jquery-1.11.0.min.js" %>
-  <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" %>
   <%= javascript_include_tag "application" %>
 </html>

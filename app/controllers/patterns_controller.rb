@@ -34,6 +34,7 @@ class PatternsController < ApplicationController
   end
 
   def update
+    @pattern.colors = params[:pattern][:colors]
     if @pattern.update(pattern_params)
       redirect_to @pattern, notice: 'Pattern was successfully updated.'
     else
