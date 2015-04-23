@@ -1,6 +1,6 @@
 class DatasetsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :set_dataset, only: [:edit, :update]
+  before_action :set_dataset, only: [:edit, :update, :destroy]
 
   def index
     @datasets = Dataset.where(:user_id == current_user.id)
@@ -17,8 +17,8 @@ class DatasetsController < ApplicationController
     if @dataset.save
       redirect_to root_path, notice: 'Dataset was successfully created.'
     else
-      render :new
       flash[:alert] = 'Something went wrong'
+      render :new
     end
   end
 
@@ -27,10 +27,10 @@ class DatasetsController < ApplicationController
 
   def update
     if @dataset.update(dataset_params)
-      redirect_to @dataset, notice: 'Dataset was successfully updated.'
+      redirect_to datasets_path, notice: 'Dataset was successfully updated.'
     else
       flash[:alert] = 'Something went wrong'   #Flash should be above render
-      render :index
+      render :edit
     end
   end
 
