@@ -7,9 +7,10 @@ feature 'create a new dataset' do
   before :each do
     sign_in_as user
   end
-# As a user
-# I want to input some data
-# So that I can create a pattern from it
+    
+  # As a user
+  # I want to input some data
+  # So that I can create a pattern from it
 
   scenario 'create a new dataset' do
     visit root_path
