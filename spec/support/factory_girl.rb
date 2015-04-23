@@ -21,5 +21,6 @@ FactoryGirl.define do
   factory :pattern do
     colors "{#5C323E, #A82743, #E15E32, #C0D23E, #E5F04C}"
     dataset
+    user
   end
 end

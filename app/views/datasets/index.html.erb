@@ -1,7 +1,14 @@
 <h3>Your datasets</h3>
 <ul>
 <% @datasets.each do |dataset| %>
+<div class = "data-set">
   <li><%= dataset.name %></li>
+  <li><% 10.times do |i| %>
+      <%= "#{dataset.data[i]}, " %>
+      <% end %></li>
+  <%= button_to "Edit", edit_dataset_path(dataset), class: "button" %>
+  <%= button_to "Delete", dataset_path(dataset), :confirm => "Are you sure?", :method => :delete, class: "button" %>
+  </div>
 <% end %>
 </ul>
 

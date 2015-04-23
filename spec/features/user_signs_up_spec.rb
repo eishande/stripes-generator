@@ -33,8 +33,5 @@ feature 'user registers', %Q{
     expect(page).to_not have_content('Sign Out')
   end
 
-  pending 'when user signs up they are assigned a default dataset'
-    # user = FactoryGirl.create(:user)
-    # expect(user.datasets).not_to be_empty
 
 end

@@ -16,11 +16,13 @@
 
   <%= f.label :colors %>
 
-  <%= f.hidden_field :colors, name:"pattern[colors][]", id:'color1' %>
-  <%= f.hidden_field :colors, name:"pattern[colors][]", id:'color2' %>
-  <%= f.hidden_field :colors, name:"pattern[colors][]", id:'color3' %>
-  <%= f.hidden_field :colors, name:"pattern[colors][]", id:'color4' %>
-  <%= f.hidden_field :colors, name:"pattern[colors][]", id:'color5' %>
+  <div id = "color-pickers">
+  <%= f.hidden_field :colors, name: "pattern[colors][]", id: "color1" %>
+  <%= f.hidden_field :colors, name: "pattern[colors][]", id: "color2" %>
+  <%= f.hidden_field :colors, name: "pattern[colors][]", id: "color3" %>
+  <%= f.hidden_field :colors, name: "pattern[colors][]", id: "color4" %>
+  <%= f.hidden_field :colors, name: "pattern[colors][]", id: "color5" %>
+  </div>
 
-  <%= f.submit %>
+  <%= f.submit nil, class: "button pattern-submit" %>
 <% end %>

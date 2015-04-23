@@ -3,29 +3,36 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <%= stylesheet_link_tag    "application" %>
+    <%= stylesheet_link_tag "//cdn.jsdelivr.net/jquery.slick/1.5.0/slick.css" %>
+    <%= stylesheet_link_tag "//cdn.jsdelivr.net/jquery.slick/1.5.0/slick-theme.css" %>
+    <%= stylesheet_link_tag "//fonts.googleapis.com/css?family=Open+Sans|Playfair+Display|Courgette" %>
+    <%= stylesheet_link_tag "application" %>
     <%= csrf_meta_tags %>
+    <title>Stripes!</title>
   </head>
 
   <body>
   <div class="wrapper">
-    <div class="row">
-      <div class="large-3 columns">
-        <%= link_to "SCARF", root_path %>
-      </div>
+    <div class="top-nav-bar">
+      <div class="row">
+        <div class="large-6 columns">
+          <%= link_to "HOME", root_path %>
+          <%= link_to "My Datasets", datasets_path %>
+          <%= link_to "My Patterns", patterns_path %>
+        </div>
 
-      <div class="large-9 columns">
-        <ul class="inline-list right">
-          <% if current_user %>
-            <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-          <% else %>
-            <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-            <li><%= link_to 'Sign In', new_user_session_path %></li>
-          <% end %>
-        </ul>
+        <div class="large-6 columns">
+          <ul class="inline-list right">
+            <% if current_user %>
+              <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+              <li><%= link_to 'Sign In', new_user_session_path %></li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
-
   <%- flash.each do |key, value| -%>
     <div class="flash flash-<%= key %> flash-messages">
       <%= value %>
@@ -39,13 +46,13 @@
       <hr/>
       <div class="row">
         <div class="large-6 columns">
-          <p>PLACEHOLDER</p>
+          <p>copyright 2015</p>
         </div>
         <div class="large-6 columns">
           <ul class="inline-list right">
-            <li><i class="fa fa-github"></i><%= link_to "eishande", "http://www.github.com/eishande/" %></li>
-            <li><i class="fa fa-twitter"></i><%= link_to "YarnAndCode", "http://www.twitter.com/YarnAndCode" %></li>
-            <li><a href="#">Section 3</a></li>
+            <li><%= fa_icon "github", class: "fa-3x" %><%= link_to "eishande", "http://www.github.com/eishande/" %></li>
+            <li><%= fa_icon "twitter", class: "fa-3x" %><%= link_to "YarnAndCode", "http://www.twitter.com/YarnAndCode" %></li>
+            <li><%= fa_icon "linkedin", class: "fa-3x" %><%= link_to "Profile", "http://www.linkedin.com/in/katebuckner" %></li>
           </ul>
         </div>
       </div>
@@ -54,8 +61,7 @@
   </div>
   </body>
 
+  <%= yield :javascript %>
   <%= javascript_include_tag "vendor/modernizr" %>
-  <%= javascript_include_tag "//code.jquery.com/jquery-1.11.0.min.js" %>
-  <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" %>
   <%= javascript_include_tag "application" %>
 </html>

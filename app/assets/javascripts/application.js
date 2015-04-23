@@ -13,23 +13,18 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.minicolors
-//= require graph 
 //= require foundation
-
+//= require slick
+//= require slider
 
 $(function(){ $(document).foundation(); });
 
 $(function() {
   $('.flash-messages').delay(1500).fadeOut(600);
 
-  $('#color1').minicolors();
-  $('#color1').minicolors('value','#fef0d9');
-  $('#color2').minicolors();
-  $('#color2').minicolors('value','#fdcc8a');
-  $('#color3').minicolors();
-  $('#color3').minicolors('value','#fc8d59');
-  $('#color4').minicolors();
-  $('#color4').minicolors('value','#e34a33');
-  $('#color5').minicolors();
-  $('#color5').minicolors('value','#b30000');
+  $('#color1').minicolors().minicolors('value', '#fef0d9');
+  $('#color2').minicolors().minicolors('value','#fdcc8a');
+  $('#color3').minicolors().minicolors('value','#fc8d59');
+  $('#color4').minicolors().minicolors('value','#e34a33');
+  $('#color5').minicolors().minicolors('value','#b30000');
 });

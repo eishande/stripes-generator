@@ -1,18 +1,78 @@
+@import "font-awesome";
+
+$title-font: 'Courgette', sans-serif;
+$body-font: 'Playfair Display', serif;
+$sans-serif-font: 'Open Sans', sans-serif;
+$main-font-color: #492D61;
+$link-color: #61C155;
+$button-color: #048091;
+$button-hover-color: #D1026C;
+$form-focus-color: #61C155;
+$background-elements-color: #F2D43F;
+
+body {
+  font-family: $body-font;
+  color: $main-font-color;
+  a {
+    color: $link-color;
+  }
+}
+
+h1, h2, h3, h4 {
+  font-family: $title-font;
+}
+
+h3 {
+  margin-bottom: 3em;
+}
+
 .wrapper {
   max-width: 90%;
 }
 
 .flash {
-  background-color: #5CCEEE;
+  background-color: $background-elements-color;
   color: white;
 }
 
-.button {
-   background-color: #5CCEEE;
-   font-family: 'Karla', sans-serif;
+input {
+  padding: 1em;
+  margin: 1em;
+  border: 0.1em solid #000;
+}
+
+.button, button {
+   background-color: $button-color;
+   font-family: $body-font;
+   border-radius: 5px;
+   &:hover {
+      background-color: $button-hover-color;
+   }
  }
 
+.top-nav-bar {
+  margin: 1em;
+
+}
+
 .minicolors input[type=hidden] + .minicolors-swatch {
-  width: 4em;
+  width: 3.5em;
   height: 12em;
+}
+
+#color-pickers {
+  margin-bottom: 2rem;
+}
+
+textarea {
+  height: auto;
+  &:focus {
+    border: 2px solid green;
+  }
+}
+
+#graph
+{
+  font-size: 1.1em;
+  font-family: $sans-serif-font;
 }

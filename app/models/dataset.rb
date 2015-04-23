@@ -1,5 +1,5 @@
 class Dataset < ActiveRecord::Base
-  has_many :patterns
+  has_many :patterns, dependent: :destroy
   belongs_to :user
 
   validates :user, presence: true
@@ -9,8 +9,10 @@ class Dataset < ActiveRecord::Base
 
   def numericality_of_data
     self.data.each do |value|
-      errors.add(:data, "Data must be numeric") if !value =~ /\A[+-]?\d+\Z/
-      break
+      if !value.is_a? Numeric
+        errors.add(:data, "Data must be numeric")
+        break
+      end
     end
   end
 end

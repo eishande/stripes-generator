@@ -7,10 +7,10 @@ class User < ActiveRecord::Base
   has_many :patterns
   has_many :datasets
 
-  before_create :create_default_dataset
+  after_create :create_default_dataset
 
   def create_default_dataset
-    self.datasets ||= Dataset.create(user: self, data: "{10, 20, 30, 40, 50}")
+    self.datasets ||= Dataset.create(user: self, name: "Example Data", data: "{10, 20, 30, 40, 50}")
   end
 
 end
