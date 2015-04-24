@@ -1,16 +1,15 @@
 <div class="row">
   <div class="large-8 push-4 columns">
-    <h3>Page Title</h3>
-    <%= button_to "Delete", pattern_path(@pattern), :confirm => "Are you sure?", :method => :delete, class: "button" %>
 
+    <h3>Knit Me! Start at row 1... </h3>
     <svg id="graph"></svg>
   </div>
 
   <div class="large-4 pull-8 columns">
     <ul>
+      <h3>Edit Pattern</h3>
       <%= render "form" %>
     </ul>
-    <p><img src="https://placehold.it/320x240&text=Ad"/></p>
   </div>
 </div>
 

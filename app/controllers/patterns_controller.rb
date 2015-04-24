@@ -57,4 +57,5 @@ class PatternsController < ApplicationController
   def pattern_params
     params.require(:pattern).permit(:dataset_id, :colors, :user)
   end
+    
 end

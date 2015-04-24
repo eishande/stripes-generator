@@ -1,13 +1,29 @@
-<h3>Your patterns</h3>
-<ul>
-<% @patterns.each do |pattern| %>
-<div class = "each-pattern">
-  <li><%= pattern.dataset.name %></li>
-  <li><% 10.times do |i| %>
-      <%= "#{pattern.dataset.data[i]}, " %>
-      <% end %></li>
-  <li><%= pattern.colors %></li>
-  <%= button_to "Delete", pattern_path(@pattern), :confirm => "Are you sure?", :method => :delete, class: "button" %>
+<div class="row">
+  <div class="large-8 push-4 columns">
+    <% @patterns.each do |pattern| %>
+    <div class = "each-pattern row">
+      <div class = "small-6 columns">
+        <p>Data set: <%= link_to pattern.dataset.name, edit_dataset_path(pattern.dataset) %><br>
+
+          <%= pattern.dataset.data[0] %>
+          <% 9.times do |i| %>
+            <%= ", #{pattern.dataset.data[i+1]}" %>
+          <% end %>...
+        </p>
+        <% pattern.colors.each do |color| %>
+          <div class="swatch" style="background-color: <%= color %>"></div>
+        <% end %>
+      </div>
+
+      <div class="small-6 columns">
+        <%= button_to "View/Edit", pattern_path(pattern), :method => :get, class: "button" %>
+        <%= button_to "Delete", pattern_path(pattern), confirm: "Are you sure?", :method => :delete, class: "button" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="large-4 pull-8 columns">
+    <h3>Your patterns</h3>
+  </div>
 </div>
-<% end %>
-</ul>
