@@ -12,8 +12,8 @@ class DatasetsController < ApplicationController
 
   def create
     @dataset = current_user.datasets.build(dataset_params)
-    @dataset.data = params[:dataset][:data]
-    #right now Data has to be enclosed in {} braces or it won't save
+    @dataset.data = params[:dataset][:data][0].split(",")
+
     if @dataset.save
       redirect_to root_path, notice: 'Dataset was successfully created.'
     else

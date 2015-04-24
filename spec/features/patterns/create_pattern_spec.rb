@@ -10,7 +10,7 @@ feature 'create a new pattern' do
   # As a user
   # I want to create a pattern from a dataset I inputted
   # So that I can see the resulting design
-  
+
   # As a user
   # I want to select the colors for my pattern
   # So I can customize my design
@@ -19,7 +19,7 @@ feature 'create a new pattern' do
 
     visit root_path
 
-    select dataset.name, from: 'Dataset'
+    select dataset.name, from: 'Pick your data set'
 
     click_button 'Create Pattern'
 
@@ -32,7 +32,7 @@ feature 'create a new pattern' do
      dataset = FactoryGirl.create(:dataset, user: user)
      visit root_path
 
-     select dataset.name, from: 'Dataset'
+     select dataset.name, from: 'Pick your data set'
 
      find('.pattern-submit').trigger('click')
 

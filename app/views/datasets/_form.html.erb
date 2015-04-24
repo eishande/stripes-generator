@@ -2,7 +2,7 @@
   <% if @dataset.errors.any? %>
     <div id="error_explanation">
       <ul>
-        There were errors in your submission: 
+        There were errors in your submission:
       <% @dataset.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
@@ -12,19 +12,18 @@
 
   <div class= "row">
     <div class ="medium-9 small-12 columns">
-      <%= f.label :name, value: "Enter a name for this dataset." %>
+      <%= f.label :name, "Enter a name for this dataset" %>
       <%= f.text_area :name, autofocus: true %>
     </div>
   </div>
   <div class= "row">
     <div class ="medium-9 small-12 columns">
-      <%= f.label :data, value: "Enter data as comma-separated numbers without spaces."  %>
-      <p>Example: 56,43,12,57,32,12</p>
-      <%= f.text_area :data, id: "data-field", rows: "6" %>
+      <%= f.label :data, "Enter data as comma-separated numbers without spaces.\nExample: 56,43,12,57,32,12"  %>
+      <%= f.text_area :data, id: "data-field", name: "dataset[data][]", rows: "6" %>
     </div>
   </div>
   <div class= "row">
-    <div class ="large-6 medium-9 small-12 columns">
+    <div class ="medium-9 small-12 columns">
       <%= f.submit nil, class: "button" %>
     </div>
   </div>
