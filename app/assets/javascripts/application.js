@@ -16,8 +16,7 @@
 //= require foundation
 //= require slick
 //= require slider
-//= require color_picker
 
 $(function(){ $(document).foundation(); });
 
-$('.flash-messages').delay(1500).fadeOut(600);
+$('.flash-messages').delay(3000).fadeOut(500);
