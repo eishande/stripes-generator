@@ -12,24 +12,23 @@
 
 <div class="row">
 <div class="large-8 push-4 columns">
-    <h3>Page Title</h3>
+    <h3>Knit your Data!</h3>
 
-    <p>Bacon ipsum dolor sit amet salami ham hock biltong ball tip drumstick sirloin pancetta meatball short loin. Venison tail chuck pork chop, andouille ball tip beef ribs flank boudin bacon. Salami andouille pork belly short ribs flank cow. Salami sirloin turkey kielbasa. Sausage venison pork loin leberkas chuck short loin, cow ham prosciutto pastrami jowl. Ham hock jerky tri-tip, fatback hamburger shoulder swine pancetta ground round. Tri-tip prosciutto meatball turkey, brisket spare ribs shankle chuck cow chicken ham hock boudin meatloaf jowl.</p>
+    <p class = "d-title">1. Pick a data set</p>
+      <p class = "d-subtitle">You can use one of the samples, or enter your own by clicking "Add a new data set."</p>
 
-    <p>Ground round pastrami pork loin tenderloin jerky. Jerky spare ribs biltong, ham hock ham capicola pork. Jerky turducken pork, meatloaf sausage capicola swine corned beef turkey short loin. Tongue prosciutto pork loin, ground round spare ribs venison kielbasa strip steak.</p>
+    <p class = "d-title">2. Select your colors</p>
+      <p class = "d-subtitle">Click on the bars to load the color picker.</p>
+    <p class = "d-title">3. Generate your pattern</p>
+      <p class = "d-subtitle">Click "Create Pattern" to view your design and tweak the colors if you so choose.</p>
   </div>
 
   <div class="large-4 pull-8 columns">
     <h3>Make Your Own!</h3>
     <%= render "form" %>
-    <ul>
-      <li>CONTENT</li>
-      <li>CONTENT</li>
-      <li>CONTENT</li>
-      <li>CONTENT</li>
-      <li>CONTENT</li>
-      <li>CONTENT</li>
-    </ul>
-    <p><img src="https://placehold.it/320x240&text=Ad"/></p>
   </div>
 </div>
+
+<% content_for :javascript do %>
+  <%= javascript_include_tag 'color_picker' %>
+<% end %>
