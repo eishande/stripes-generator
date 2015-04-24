@@ -1,5 +1,5 @@
-
-
+<div class="row">
+  <div class="large-8 push-4 columns">
     <% @datasets.each do |dataset| %>
     <div class= "row">
       <div class = "data-set small-6 columns">
@@ -18,9 +18,10 @@
       </div>
     </div>
     <% end %>
-
+  </div>
 
   <div class="large-4 pull-8 columns">
     <h3>Your datasets</h3>
     <%= link_to "Add a new dataset", new_dataset_path %>
+  </div>
 </div>

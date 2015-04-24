@@ -9,14 +9,14 @@
     </div>
   <% end %>
 
-  <%= f.label :dataset_id, value: "Pick your data set" %>
+  <%= f.label :dataset_id, "Pick your data set" %>
   <%= f.collection_select(:dataset_id, Dataset.all, :id, :name) %>
 
-  <div class = "right">
+  <div class = "text-right">
     <%= link_to "Add a new dataset", new_dataset_path %>
   </div>
 
-  <%= f.label :colors, value: "Pick your colors" %>
+  <%= f.label :colors, "Pick your colors" %>
 
   <div id = "color-pickers">
   <%= f.hidden_field :colors, name: "pattern[colors][]", id: "color1" %>
