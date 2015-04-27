@@ -1,7 +1,7 @@
 <div class="row">
   <div class="large-8 push-4 columns">
     <% @datasets.each do |dataset| %>
-    <div class= "row">
+    <div class= "row" id= "dataset_<%= dataset.id %>">
       <div class = "data-set small-6 columns">
         <p><%= dataset.name %></p>
         <p>

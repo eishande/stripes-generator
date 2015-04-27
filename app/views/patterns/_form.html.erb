@@ -10,7 +10,11 @@
   <% end %>
 
   <%= f.label :dataset_id, "Pick your data set" %>
-  <%= f.collection_select(:dataset_id, Dataset.all, :id, :name) %>
+  <% if user_signed_in? %>
+    <%= f.collection_select(:dataset_id, current_user.full_datasets, :id, :name) %>
+  <% else %>
+    <%= f.collection_select(:dataset_id, Dataset.standard, :id, :name) %>
+  <% end %>
 
   <div class = "text-right">
     <%= link_to "Add a new dataset", new_dataset_path %>

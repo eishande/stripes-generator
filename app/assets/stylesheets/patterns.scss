@@ -11,12 +11,14 @@ $form-focus-color: #4ECDC4; //aqua
 $background-elements-color: #C7F464; //apple green
 $errors-color: #CC333F; //dk red
 
+/* Global styling */
 body {
   font-family: $body-font;
   color: $main-font-color;
-  a {
-    color: $link-color;
-  }
+}
+
+a {
+  color: $link-color;
 }
 
 h1, h2, h3, h4 {
@@ -24,13 +26,29 @@ h1, h2, h3, h4 {
 }
 
 .wrapper {
-  max-width: 90%;
+  width: 90%;
 }
 
 .flash {
   background-color: $background-elements-color;
 }
 
+#error_explanation {
+  color: $errors-color;
+}
+
+/* Navigation */
+.top-nav-bar {
+  margin: 1em;
+}
+
+.top-bar-element {
+  margin-left: 1em;
+  margin-right: 1em;
+  display: inline-block;
+}
+
+/* Forms */
 .button, button, input[type=submit] {
    background-color: $button-color;
    font-family: $body-font;
@@ -42,62 +60,41 @@ h1, h2, h3, h4 {
    margin: 0.75em;
  }
 
- label {
+label {
    font-size: 1em;
    margin-bottom: 0.5em;
  }
 
-.top-nav-bar {
-  margin: 1em;
-}
+textarea {
+   &:focus {
+     border: 2px solid $form-focus-color;
+   }
+   width: 75%;
+ }
 
-.top-bar-element {
-  margin-left: 1em;
-  margin-right: 1em;
-  display: inline-block;
+textarea #data-field {
+   height: auto;
+ }
+
+select {
+   font-family: $body-font;
+   margin-bottom: .5em;
 }
 
 .minicolors input[type=hidden] + .minicolors-swatch {
-  width: 3em;
-  height: 12em;
-}
+   width: 3em;
+   height: 12em;
+ }
 
 #color-pickers {
-  margin-bottom: 2rem;
-}
+   margin-bottom: 2rem;
+ }
 
-textarea {
-  &:focus {
-    border: 2px solid $form-focus-color;
-  }
-  width: 75%;
-}
-
-textarea #data-field {
-  height: auto;
-}
-
-#graph {
-  font-size: 1.1em;
-  font-family: $sans-serif-font;
-}
-
-select {
-  font-family: $body-font;
-}
-
-#error_explanation {
-  color: $errors-color;
-}
-
-.swatch {
-  width: 2em;
-  height: 2em;
-  display: inline-block;
-}
-
-.each-pattern {
-  padding-bottom: 4em;
+/* Page specific */
+#main-title {
+  margin-top: -2em;
+  font-size: 3em;
+  font-family: "Miltonian Tattoo", serif;
 }
 
 .d-title {
@@ -109,6 +106,17 @@ select {
   padding-left: 2em;
 }
 
-select {
-  margin-bottom: .5em;
+#graph {
+  font-size: 1.1em;
+  font-family: $sans-serif-font;
+}
+
+.swatch {
+  width: 2em;
+  height: 2em;
+  display: inline-block;
+}
+
+.each-pattern {
+  padding-bottom: 4em;
 }

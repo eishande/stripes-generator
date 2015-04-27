@@ -1,23 +1,7 @@
 require 'coveralls'
 require 'database_cleaner'
 Coveralls.wear!('rails')
-RSpec.configure do |config|
-
-  config.expect_with :rspec do |expectations|
-    expectations.include_chain_clauses_in_custom_matcher_descriptions = true
-  end
-
-  config.mock_with :rspec do |mocks|
-    mocks.verify_partial_doubles = true
-  end
-
-  config.before(:suite) do
-     DatabaseCleaner.strategy = :transaction
-     DatabaseCleaner.clean_with(:truncation)
-  end
-
-  config.filter_run :focus
-  config.run_all_when_everything_filtered = true
+  
 =begin
   # Limits the available syntax to the non-monkey patched syntax that is
   # recommended. For more details, see:
@@ -53,4 +37,3 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
-end
