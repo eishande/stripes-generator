@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'create a new pattern' do
-  let(:user) { FactoryGirl.create(:user) }
+  let!(:user) { FactoryGirl.create(:user) }
 
   before :each do
     sign_in_as user
@@ -26,7 +26,17 @@ feature 'create a new pattern' do
     expect(page).to have_content('Pattern was successfully created')
   end
 
-  pending 'when user signs up they can access the default datasets'
+  scenario 'when user signs up they can access the default datasets' do
+    FactoryGirl.create(:user)
+
+    visit root_path
+
+    select Dataset.first.name, from: 'Pick your data set'
+
+    click_button 'Create Pattern'
+
+    expect(page).to have_content('Pattern was successfully created')
+  end
 
   scenario 'creating a pattern renders the stripe visual', js:true do
      dataset = FactoryGirl.create(:dataset, user: user)

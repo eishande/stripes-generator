@@ -38,3 +38,4 @@ gem 'devise'
 gem 'foundation-rails', github: "zurb/foundation-rails"
 gem 'font-awesome-rails'
 gem 'jquery-minicolors-rails'
+gem 'puma'

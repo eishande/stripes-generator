@@ -35,8 +35,6 @@ $(function() {
         .domain(ticks)
         .range(colors);
     var barHeight = 30;
-    //remember to clamp it so it can handle values outside
-      //the expected range
 
     var width = 600,
         height = d3.set(data).size() * barHeight;

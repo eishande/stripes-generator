@@ -12,11 +12,12 @@ feature 'delete a dataset' do
   end
 
   scenario 'delete a dataset that you created' do
-    FactoryGirl.create(:dataset, user: user)
+    dataset = FactoryGirl.create(:dataset, user: user)
     visit datasets_path
 
-    click_button 'Delete'
-
+    within("div#dataset_#{dataset.id}") do
+      click_button 'Delete'
+    end
     expect(page).to have_content 'Dataset deleted'
   end
 

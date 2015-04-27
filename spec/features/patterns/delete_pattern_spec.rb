@@ -12,10 +12,12 @@ feature 'delete a pattern' do
   end
 
   scenario 'delete a pattern that you created' do
-    FactoryGirl.create(:pattern, user: user)
+    pattern = FactoryGirl.create(:pattern, user: user)
     visit patterns_path
 
-    click_button 'Delete'
+    within("div#pattern_#{pattern.id}") do
+      click_button 'Delete'
+    end
 
     expect(page).to have_content 'Pattern deleted'
   end

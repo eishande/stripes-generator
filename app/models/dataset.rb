@@ -22,4 +22,8 @@ class Dataset < ActiveRecord::Base
       errors.add(:data, "Dataset must include at least 5 values")
     end
   end
+
+  def self.standard
+    User.root.datasets
+  end
 end
