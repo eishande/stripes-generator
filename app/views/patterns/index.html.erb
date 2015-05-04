@@ -5,9 +5,9 @@
       <div class = "small-6 columns">
         <p>Data set: <%= link_to pattern.dataset.name, edit_dataset_path(pattern.dataset) %><br>
 
-          <%= pattern.dataset.data[0] %>
+          <%= pattern.dataset.data_to_a[0] %>
           <% 9.times do |i| %>
-            <%= ", #{pattern.dataset.data[i+1]}" %>
+            <%= ", #{pattern.dataset.data_to_a[i+1]}" %>
           <% end %>...
         </p>
         <% pattern.colors.each do |color| %>

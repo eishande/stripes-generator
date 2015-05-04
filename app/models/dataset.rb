@@ -5,21 +5,10 @@ class Dataset < ActiveRecord::Base
   validates :user, presence: true
   validates :data, presence: true
 
-  validate :numericality_of_data
-  validate :dataset_length
-
-  def numericality_of_data
-    self.data.each do |value|
-      if !value.is_a? Numeric
-        errors.add(:data, "Data must be numeric")
-        break
-      end
-    end
-  end
-
-  def dataset_length
-    if data.length < 5
-      errors.add(:data, "Dataset must include at least 5 values")
+  def data_to_a
+    self.data.split(",").map do |point|
+      point.gsub!(/[^0-9a-z]/i, '')
+      point.to_f
     end
   end
 

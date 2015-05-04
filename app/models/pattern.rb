@@ -10,7 +10,7 @@ class Pattern < ActiveRecord::Base
   validate :colors_hex_format
 
   def build_json
-    data = self.dataset.data
+    data = self.dataset.data_to_a
     colors = self.colors
 
     { :data => data, :colors => colors }.to_json
