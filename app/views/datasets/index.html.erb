@@ -5,9 +5,9 @@
       <div class = "data-set small-6 columns">
         <p><%= dataset.name %></p>
         <p>
-          <%= dataset.data[0] %>
+          <%= dataset.data_to_a[0] %>
           <% 9.times do |i| %>
-            <%= ", #{dataset.data[i+1]}" %>
+            <%= ", #{dataset.data_to_a[i+1]}" %>
           <% end %>...
         </p>
       </div>

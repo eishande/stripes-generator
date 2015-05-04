@@ -12,8 +12,6 @@ class DatasetsController < ApplicationController
 
   def create
     @dataset = current_user.datasets.build(dataset_params)
-    @dataset.data = params[:dataset][:data][0].split(",")
-
     if @dataset.save
       redirect_to root_path, notice: 'Dataset was successfully created.'
     else
@@ -46,6 +44,6 @@ class DatasetsController < ApplicationController
   end
 
   def dataset_params
-    params.require(:dataset).permit({:data => []}, :name, :user)
+    params.require(:dataset).permit(:data, :name, :user)
   end
 end
